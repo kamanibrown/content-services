@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Content Services — Kamani Brown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF7EE; --surface:#FFFFFF; --surface2:#FFF0DE; --ink:#1B130B; --muted:#6F5F4F; --line:#EADBC8;
+  --accent:#D9480F; --accent2:#FF6B2E; --dark:#1B130B; --dark-text:#FFF7EE; --radius:18px;
+  --shadow:0 12px 32px rgba(27,19,11,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#131009; --surface:#1E1912; --surface2:#2A2117; --ink:#FFF6E9; --muted:#CBBAA3; --line:#342A1E; --shadow:0 12px 32px rgba(0,0,0,.35); --dark:#FFF6E9; --dark-text:#1B130B; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.topnav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0 6px;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:-.02em;font-size:15px;text-transform:uppercase}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:6px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;font-weight:700;font-size:14px;padding:10px 12px;min-height:40px;display:inline-flex;align-items:center;border-radius:999px}
+.navlinks a:hover{background:var(--surface2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:13px 20px;border-radius:999px;font-weight:800;text-decoration:none;border:1px solid var(--ink);cursor:pointer;font-size:15px}
+.btn-primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn:active{transform:translateY(1px)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:28px 0 18px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.eyebrow i{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block}
+h1{font-size:clamp(42px,6vw,68px);line-height:.92;letter-spacing:-.04em;margin:18px 0 16px;font-weight:900}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:19px;color:var(--muted);max-width:54ch;margin:0 0 22px}
+.lead strong{color:var(--ink)}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.stat b{font-size:22px;letter-spacing:-.03em;display:block;line-height:1}
+.stat span{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.3;display:block;margin-top:6px}
+.hero-img{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--surface2)}
+.hero-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.caption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.testbar{margin:28px 0 8px;background:var(--dark);color:var(--dark-text);border-radius:20px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.testbar h2{margin:0 0 6px;font-size:24px;letter-spacing:-.02em;line-height:1.05}
+.testbar p{margin:0;opacity:.85;max-width:62ch}
+.price-big{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:38px;white-space:nowrap;text-align:right;line-height:1}
+.price-big small{display:block;font-family:Archivo,sans-serif;font-size:13px;font-weight:700;opacity:.8;margin-top:6px}
+section{padding:42px 0 6px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.sec-head h2{font-size:34px;letter-spacing:-.03em;line-height:1;margin:0}
+.sec-head p{color:var(--muted);max-width:52ch;margin:8px 0 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.card.featured{border:2px solid var(--accent);position:relative}
+.badge{position:absolute;top:-13px;left:18px;background:var(--accent);color:#fff;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.card h3{margin:4px 0 4px;font-size:21px;letter-spacing:-.02em}
+.card .for{color:var(--muted);font-size:14px;margin:0 0 16px;min-height:42px}
+.price{font-family:"JetBrains Mono",monospace;font-size:36px;font-weight:700;letter-spacing:-.04em;line-height:1}
+.price span{font-family:Archivo,sans-serif;font-size:14px;font-weight:700;color:var(--muted)}
+.per{font-size:13px;color:var(--muted);font-weight:700;margin:8px 0 16px}
+.list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}
+.list li{display:flex;gap:10px;font-size:14.5px;line-height:1.4}
+.list li::before{content:"✓";width:22px;height:22px;flex:0 0 22px;display:grid;place-items:center;background:var(--surface2);border:1px solid var(--line);border-radius:50%;font-size:12px;font-weight:900;color:var(--accent)}
+.card .btn{margin-top:auto;width:100%}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px}
+.panel h3{margin:0 0 12px;font-size:19px}
+.addon-row{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:start}
+.addon-row:last-child{border-bottom:0}
+.addon-row b{font-size:15px}
+.addon-row p{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+.addon-price{font-family:"JetBrains Mono",monospace;font-weight:700;white-space:nowrap}
+.calc{background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:22px}
+.calc label{font-weight:800;font-size:14px;display:block;margin-bottom:8px}
+.calc select,.calc input[type="number"]{width:100%;min-height:48px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:600}
+.checkrow{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.checkrow:last-of-type{border-bottom:0}
+.checkrow input{width:22px;height:22px;margin-top:2px;accent-color:var(--accent);flex:0 0 22px}
+.checkrow span{font-size:14.5px}
+.checkrow small{display:block;color:var(--muted)}
+.totalbox{margin-top:16px;background:var(--ink);color:var(--bg);border-radius:14px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.totalbox b{font-family:"JetBrains Mono",monospace;font-size:28px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:900;margin-bottom:12px}
+.step h3{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px}
+.terms{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.term{padding:16px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.term b{display:block;margin-bottom:6px}
+.term p{margin:0;color:var(--muted);font-size:14px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:6px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:800;padding:14px 0;min-height:48px;display:flex;align-items:center}
+details p{color:var(--muted);margin:0 0 16px}
+.cta{margin:36px 0 28px;background:var(--accent);color:#fff;border-radius:22px;padding:28px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
+.cta h2{margin:0 0 8px;font-size:32px;letter-spacing:-.03em;line-height:1}
+.cta p{margin:0;opacity:.92}
+.cta .btn{background:#fff;color:#1B130B;border-color:#fff;width:100%}
+.cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7);margin-top:10px}
+.emailbox{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 14px;font-family:"JetBrains Mono",monospace;font-size:14px;word-break:break-all;margin-bottom:12px;text-align:center}
+footer{padding:10px 0 36px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{font-weight:700;color:var(--ink)}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .grid3,.steps{grid-template-columns:1fr 1fr}
+  .terms{grid-template-columns:1fr 1fr}
+  .cta{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .grid3,.grid2,.steps,.terms{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .stat b{font-size:18px}
+  .testbar{grid-template-columns:1fr}
+  .price-big{text-align:left}
+  h1{font-size:44px}
+  .topnav{justify-content:center;text-align:center}
+  .navlinks{justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topnav" aria-label="Page">
+    <div class="brand">Kamani Brown <span>· Content Services</span></div>
+    <div class="navlinks">
+      <a href="#packages">Packages</a>
+      <a href="#addons">Add-ons</a>
+      <a href="#process">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#start" style="background:var(--ink);color:var(--bg)">Start a test edit</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="eyebrow"><i></i> Taking on new editing clients now</span>
+      <h1>You shoot.<br>I turn it into Shorts <em>people actually finish.</em></h1>
+      <p class="lead">I am Kamani Brown, a tech creator and editor. I do not just cut video. I cut for the hook, the retention, and the click. <strong>You send the raw footage, you get back ready-to-post Shorts, Reels and TikToks</strong> with captions, sound and pacing that hold attention.</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#start">Start with a $100 test edit</a>
+        <a class="btn btn-ghost" href="#packages">See the packages ↓</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>1.4M</b><span>Lifetime views on my own channel</span></div>
+        <div class="stat"><b>650K+</b><span>Views on my top video</span></div>
+        <div class="stat"><b>25–54</b><span>Age of nearly 9 in 10 of my viewers</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="hero-img"><img src="https://pub-ce876c73fc7d4e1a830a749fa9195f81.r2.dev/content-services/assets/hero.webp" alt="Illustrated creator editing desk with two monitors showing video timelines, microphone and notebook"></div>
+      <p class="caption">Edited like a creator, not a commodity chop shop. Hooks first, filler out.</p>
+    </div>
+  </header>
+
+  <div class="testbar" id="start">
+    <div>
+      <h2>Start here: Paid Test Edit — try me on one video first</h2>
+      <p>One Short, Reel or TikTok, edited the full way. 48-hour turnaround. If you sign for a monthly package within 7 days, the full $100 comes off month 1. No free test edits, because the work is the portfolio.</p>
+    </div>
+    <div class="price-big">$100<small>one video · 48 hours<br>credited toward month 1</small><br><a class="btn btn-accent" href="mailto:kamanibrown.studio@gmail.com?subject=Paid%20Test%20Edit%20%24100%20-%20Content%20Services&body=Hi%20Kamani%2C%0A%0AI%20want%20to%20start%20with%20the%20%24100%20Paid%20Test%20Edit.%0A%0AHere%20is%20my%20footage%20link%3A%0AMy%20channel%20%2F%20brand%3A%0AWhat%20this%20video%20needs%20to%20do%3A%0A" style="margin-top:14px;font-size:14px;min-height:44px">Book the test edit</a></div>
+  </div>
+
+  <section id="packages">
+    <div class="sec-head">
+      <div><h2>Monthly packages</h2><p>Approved pricing, in USD. Month to month, no long contract. Pick the volume you can actually feed with footage.</p></div>
+      <p style="margin:0;font-weight:700">All packages include hooks, captions &amp; sound</p>
+    </div>
+    <div class="grid3">
+      <article class="card">
+        <h3>Shorts Engine</h3>
+        <p class="for">For creators who post consistently and just need the editing off their plate.</p>
+        <div class="price">$1,150 <span>/ month</span></div>
+        <div class="per">About $96 per Short · 12 videos a month</div>
+        <ul class="list">
+          <li>12 Shorts / Reels / TikToks per month</li>
+          <li>Hook-first edit, built to hold the first 3 seconds</li>
+          <li>Burned-in captions, styled for your brand</li>
+          <li>Sound design and music, mixed clean</li>
+          <li>2 revisions per video included</li>
+          <li>Vertical 9:16 exports for every platform</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:kamanibrown.studio@gmail.com?subject=Shorts%20Engine%20%241%2C150%2Fmo%20-%20Enquiry&body=Hi%20Kamani%2C%0A%0AI%20am%20interested%20in%20Shorts%20Engine.%0A%0AMy%20channel%20%2F%20brand%3A%0AHow%20much%20footage%20I%20shoot%20a%20month%3A%0A">Enquire — Shorts Engine</a>
+      </article>
+
+      <article class="card featured">
+        <span class="badge">Anchor package · Best value</span>
+        <h3>Shorts Engine Plus</h3>
+        <p class="for">The full engine. You film, everything after that is handled.</p>
+        <div class="price">$1,850 <span>/ month</span></div>
+        <div class="per">About $93 per Short · 20 videos + extras included</div>
+        <ul class="list">
+          <li>20 Shorts / Reels / TikToks per month</li>
+          <li>Everything in Shorts Engine</li>
+          <li>Thumbnails included for every video</li>
+          <li>Titles and descriptions written for search and clicks</li>
+          <li>Uploading and scheduling done for you</li>
+          <li>Monthly performance snapshot, what worked and what is next</li>
+          <li>Priority turnaround in the queue</li>
+        </ul>
+        <a class="btn btn-accent" href="mailto:kamanibrown.studio@gmail.com?subject=Shorts%20Engine%20Plus%20%241%2C850%2Fmo%20-%20Enquiry&body=Hi%20Kamani%2C%0A%0AI%20am%20interested%20in%20Shorts%20Engine%20Plus.%0A%0AMy%20channel%20%2F%20brand%3A%0AHow%20much%20footage%20I%20shoot%20a%20month%3A%0A">Enquire — Engine Plus</a>
+      </article>
+
+      <article class="card">
+        <h3>Content Partner</h3>
+        <p class="for">For one or two clients only. Shorts plus long-form plus a real content brain.</p>
+        <div class="price">$2,600 <span>/ month</span></div>
+        <div class="per">Max 2 clients at a time · Waitlist if full</div>
+        <ul class="list">
+          <li>12 Shorts / Reels / TikToks per month</li>
+          <li>2 long-form video edits per month</li>
+          <li>Monthly strategy session and content plan</li>
+          <li>Ideas, hooks and angles, not just editing</li>
+          <li>Thumbnails, titles and descriptions included</li>
+          <li>Closest access, fastest turnaround</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:kamanibrown.studio@gmail.com?subject=Content%20Partner%20%242%2C600%2Fmo%20-%20Enquiry&body=Hi%20Kamani%2C%0A%0AI%20am%20interested%20in%20Content%20Partner.%0A%0AMy%20channel%20%2F%20brand%3A%0AWhat%20I%20need%20help%20with%3A%0A">Enquire — Content Partner</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="addons">
+    <div class="sec-head"><div><h2>Add-ons &amp; calculator</h2><p>Add only what you need. Use the calculator for a quick monthly estimate, then email me and we lock the exact scope.</p></div></div>
+    <div class="grid2">
+      <div class="panel">
+        <h3>Rate card — add-ons</h3>
+        <div class="addon-row"><div><b>Extra Short</b><p>Beyond your monthly package count</p></div><span class="addon-price">$95 / video</span></div>
+        <div class="addon-row"><div><b>Thumbnail</b><p>Custom thumbnail, if not already in your package</p></div><span class="addon-price">$30 / each</span></div>
+        <div class="addon-row"><div><b>Rush delivery</b><p>Jump the queue, per video</p></div><span class="addon-price">+$50 / video</span></div>
+        <div class="addon-row"><div><b>Extra revision</b><p>Beyond the 2 included revisions</p></div><span class="addon-price">$50 / round</span></div>
+        <div class="addon-row"><div><b>Community block</b><p>Community posts and channel upkeep block</p></div><span class="addon-price">+$400 / month</span></div>
+        <div class="addon-row"><div><b>Paid Test Edit</b><p>Credited in full if you sign within 7 days</p></div><span class="addon-price">$100 / video</span></div>
+      </div>
+
+      <div class="calc" aria-label="Monthly estimate calculator">
+        <label for="pkg">1. Pick a package</label>
+        <select id="pkg">
+          <option value="1150">Shorts Engine — $1,150/mo (12 Shorts)</option>
+          <option value="1850" selected>Shorts Engine Plus — $1,850/mo (20 Shorts + thumbnails + posting)</option>
+          <option value="2600">Content Partner — $2,600/mo (12 Shorts + 2 long-form)</option>
+          <option value="100">Paid Test Edit — $100 (single video)</option>
+        </select>
+
+        <div style="margin-top:16px">
+          <label>2. Add extras for the month</label>
+          <div class="checkrow"><input type="checkbox" id="cExtra"><span>Extra Shorts <small>How many extra beyond the package?</small></span></div>
+          <input type="number" id="nExtra" min="0" max="30" value="2" aria-label="Number of extra Shorts" style="margin:6px 0 4px">
+          <div class="checkrow"><input type="checkbox" id="cThumb"><span>Extra thumbnails at $30 <small>Plus and Partner already include thumbnails</small></span></div>
+          <input type="number" id="nThumb" min="0" max="30" value="4" aria-label="Number of extra thumbnails" style="margin:6px 0 4px">
+          <div class="checkrow"><input type="checkbox" id="cRush"><span>Rush delivery at +$50 per video</span></div>
+          <input type="number" id="nRush" min="0" max="30" value="1" aria-label="Number of rush videos" style="margin:6px 0 4px">
+          <div class="checkrow"><input type="checkbox" id="cCommunity"><span>Community block <small>+$400/mo</small></span></div>
+        </div>
+
+        <div class="totalbox"><span>Estimated total<br><small style="opacity:.8">USD · Final quote confirmed by email</small></span><b id="total">$1,850</b></div>
+        <p style="font-size:13px;color:var(--muted);margin:12px 0 0">This is an estimate only. Your final invoice is based on the exact scope we agree before work starts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="sec-head"><div><h2>How it works</h2><p>Simple on purpose. No portals to learn, no messy threads.</p></div></div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>You send footage</h3><p>Drop your raw clips in Drive. Add a one-line note on what the video needs to do. That is enough to start.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>I cut for retention</h3><p>Hook up front, dead air out, captions in, sound cleaned. I edit it the way I edit my own channel.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>You review</h3><p>You get a review link. Two revision rounds are included on monthly packages. Clear notes, quick turn.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>It goes live</h3><p>You post it, or on Plus and Partner I upload and schedule it for you with title, description and thumbnail set.</p></div>
+    </div>
+
+    <div style="height:16px"></div>
+    <div class="panel">
+      <h3>Every edit includes</h3>
+      <ul class="list" style="grid-template-columns:1fr 1fr;display:grid;gap:10px 20px;margin:0">
+        <li>Hook in the first 2 to 3 seconds, no slow intros</li>
+        <li>Captions burned in and easy to read on mute</li>
+        <li>Tight cuts, zooms and reframing for vertical</li>
+        <li>Music and sound effects, licensed-safe sources</li>
+        <li>Clean audio, levels balanced for phone speakers</li>
+        <li>Export ready for YouTube Shorts, Reels and TikTok</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div><h2>Terms, plain and fair</h2></div></div>
+    <div class="terms">
+      <div class="term"><b>Month to month</b><p>No long lock-in. Stay because it is working.</p></div>
+      <div class="term"><b>14-day notice</b><p>Either side can end with 14 days notice.</p></div>
+      <div class="term"><b>50% upfront, month 1</b><p>Half of month 1 to start, balance on the agreed schedule. USD, net.</p></div>
+      <div class="term"><b>Wise preferred</b><p>Paid by bank transfer to my USD account via Wise. Details shared privately once we agree scope.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="sec-head"><div><h2>Questions</h2></div></div>
+    <details><summary>Why is the test edit paid?</summary><p>Because a real edit is real work, and it is the best way for both of us to know if we fit. It is $100, delivered in 48 hours, and it comes straight off month 1 if you sign within 7 days.</p></details>
+    <details><summary>What do you need from me to start?</summary><p>Your raw footage, your channel or brand link, and what you want the video to do. If you are on a monthly package, a simple Drive folder rhythm is all we need week to week.</p></details>
+    <details><summary>Do you work outside tech?</summary><p>Yes. My own channel is tech, but the editing system travels. Coaches, creators, service businesses and brands with talking-head or demo footage are a great fit. If your footage is mostly you talking and showing, I can cut it.</p></details>
+    <details><summary>How fast is turnaround on monthly packages?</summary><p>Edits are delivered in steady batches through the month so you always have something to post. Rush delivery is available as an add-on at +$50 per video when you need one jumped ahead.</p></details>
+    <details><summary>Who owns the videos?</summary><p>You do. They are your footage and your finished videos. I keep project files for revisions during our work together.</p></details>
+  </section>
+
+  <div class="cta">
+    <div>
+      <h2>Ready to stop editing at midnight?</h2>
+      <p>Start with one test edit. Send the footage, see the cut, then decide on a package with zero pressure.</p>
+    </div>
+    <div>
+      <div class="emailbox">kamanibrown.studio@gmail.com</div>
+      <a class="btn" href="mailto:kamanibrown.studio@gmail.com?subject=Content%20Services%20-%20I%20want%20to%20start&body=Hi%20Kamani%2C%0A%0AI%20saw%20your%20Content%20Services%20page.%0A%0APackage%20I%20am%20looking%20at%3A%0AMy%20channel%20%2F%20brand%3A%0AFootage%20link%3A%0A">Email Kamani to start</a>
+      <button class="btn btn-ghost" id="copyBtn" type="button">Copy email address</button>
+      <p id="copyMsg" style="text-align:center;font-size:13px;margin:8px 0 0;min-height:18px"></p>
+    </div>
+  </div>
+
+  <footer>
+    <span><strong style="color:var(--ink)">Kamani Brown</strong> · Tech Content Creator · Canada</span>
+    <span><a href="https://kamanibrown.github.io/kamanibrown/" target="_blank" rel="noopener">Portfolio &amp; Media Kit</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@KamaniBrown" target="_blank" rel="noopener">YouTube Channel</a></span>
+    <span>Prices in USD. Approved Nov 15, 2026.</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var pkg=document.getElementById('pkg'), total=document.getElementById('total');
+  var cExtra=document.getElementById('cExtra'), nExtra=document.getElementById('nExtra');
+  var cThumb=document.getElementById('cThumb'), nThumb=document.getElementById('nThumb');
+  var cRush=document.getElementById('cRush'), nRush=document.getElementById('nRush');
+  var cCommunity=document.getElementById('cCommunity');
+  function num(el){ var v=parseInt(el.value,10); return isNaN(v)||v<0?0:v; }
+  function calc(){
+    var t=parseInt(pkg.value,10)||0;
+    if(cExtra.checked) t+=num(nExtra)*95;
+    if(cThumb.checked) t+=num(nThumb)*30;
+    if(cRush.checked) t+=num(nRush)*50;
+    if(cCommunity.checked) t+=400;
+    total.textContent='$'+t.toLocaleString('en-US');
+  }
+  [pkg,cExtra,cThumb,cRush,cCommunity,nExtra,nThumb,nRush].forEach(function(el){ el.addEventListener('change',calc); el.addEventListener('input',calc); });
+  calc();
+  var btn=document.getElementById('copyBtn'), msg=document.getElementById('copyMsg');
+  btn.addEventListener('click',function(){
+    var email='kamanibrown.studio@gmail.com';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(function(){ msg.textContent='Copied: '+email; }).catch(function(){ msg.textContent=email; });
+    } else { msg.textContent=email; }
+  });
+})();
+</script>
+</body>
+</html>
