@@ -50,6 +50,16 @@ h1 em{font-style:normal;color:var(--accent)}
 .hero-img{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--surface2)}
 .hero-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
 .caption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.samples{padding:26px 0 2px}
+.samples-grid{display:grid;grid-template-columns:300px 1fr;gap:16px;align-items:start}
+.sample{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+.sample-tag{display:inline-block;background:var(--surface2);border:1px solid var(--line);color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px;margin-bottom:12px}
+.video-frame{position:relative;width:100%;overflow:hidden;border-radius:14px;background:#000}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.video-vertical{aspect-ratio:9/16;max-width:264px;margin:0 auto}
+.video-wide{aspect-ratio:16/9}
+.sample h3{margin:14px 0 4px;font-size:18px;letter-spacing:-.02em;line-height:1.15}
+.sample p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
 .testbar{margin:28px 0 8px;background:var(--dark);color:var(--dark-text);border-radius:20px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
 .testbar h2{margin:0 0 6px;font-size:24px;letter-spacing:-.02em;line-height:1.05}
 .testbar p{margin:0;opacity:.85;max-width:62ch}
@@ -112,11 +122,14 @@ footer{padding:10px 0 36px;color:var(--muted);font-size:14px;display:flex;justif
 footer a{font-weight:700;color:var(--ink)}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}
+  .samples-grid{grid-template-columns:260px 1fr}
   .grid3,.steps{grid-template-columns:1fr 1fr}
   .terms{grid-template-columns:1fr 1fr}
   .cta{grid-template-columns:1fr}
 }
 @media(max-width:620px){
+  .samples-grid{grid-template-columns:1fr}
+  .video-vertical{max-width:280px}
   .grid3,.grid2,.steps,.terms{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
   .stat b{font-size:18px}
@@ -161,6 +174,30 @@ footer a{font-weight:700;color:var(--ink)}
       <p class="caption">Edited like a creator, not a commodity chop shop. Hooks first, filler out.</p>
     </div>
   </header>
+
+  <section class="samples" id="work" aria-label="Work samples">
+    <div class="sec-head">
+      <div><h2>See the work</h2><p>Just a taste — one Short and one long-form video. Both are paid brand work, edited by Kamani.</p></div>
+    </div>
+    <div class="samples-grid">
+      <article class="sample">
+        <span class="sample-tag">Short-form edit</span>
+        <div class="video-frame video-vertical">
+          <iframe src="https://www.youtube-nocookie.com/embed/IbLdcPkAtLc" title="TORRAS Q3 Air Pro — Short edited by Kamani Brown" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>TORRAS Q3 Air Pro</h3>
+        <p>Paid brand Short, edited by Kamani. Hook-first, captioned and cut to hold to the end.</p>
+      </article>
+      <article class="sample">
+        <span class="sample-tag">Long-form edit</span>
+        <div class="video-frame video-wide">
+          <iframe src="https://www.youtube-nocookie.com/embed/lGjY_e4FuM0" title="Blacklyte Athena Pro review — long-form video edited by Kamani Brown" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <h3>Blacklyte Athena Pro review</h3>
+        <p>Paid brand video, edited by Kamani. A full long-form review with the pacing and structure that keeps viewers watching.</p>
+      </article>
+    </div>
+  </section>
 
   <div class="testbar" id="start">
     <div>
